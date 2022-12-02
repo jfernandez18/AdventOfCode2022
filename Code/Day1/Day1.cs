@@ -36,29 +36,25 @@ namespace AdventOfCode2022.Code
                             int index = moreCalorieElfs.IndexOf(min);
                             moreCalorieElfs.RemoveAt(index);
                             moreCalorieElfs.Add(calorieCounter);
-                        }                        
+                        }
                     }
                     calorieCounter = 0;
                 }
+            }
 
-                if (streamReader.EndOfStream)
+            if (moreCalorieElfs.Count < 3)
+            {
+                moreCalorieElfs.Add(calorieCounter);
+            }
+            else
+            {
+                min = moreCalorieElfs.Min();
+
+                if (calorieCounter > min)
                 {
-                    // Obtenemos los 3 elfos con el mayor número de calorias
-                    if (moreCalorieElfs.Count < 3)
-                    {
-                        moreCalorieElfs.Add(calorieCounter);
-                    }
-                    else
-                    {
-                        min = moreCalorieElfs.Min();
-
-                        if (calorieCounter > min)
-                        {
-                            int index = moreCalorieElfs.IndexOf(min);
-                            moreCalorieElfs.RemoveAt(index);
-                            moreCalorieElfs.Add(calorieCounter);
-                        }
-                    }
+                    int index = moreCalorieElfs.IndexOf(min);
+                    moreCalorieElfs.RemoveAt(index);
+                    moreCalorieElfs.Add(calorieCounter);
                 }
             }
 
